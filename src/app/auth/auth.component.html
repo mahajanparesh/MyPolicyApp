@@ -1,0 +1,155 @@
+<div class="main-body">
+  <div class="container" id="container">
+    <!--<div class="form-container sign-up-container">
+          <form (ngSubmit)="signup_submit()" #signupForm="ngForm">
+            <h1>Create Account</h1>
+            <span>or use your email for registration</span>
+            <input
+              type="email"
+              id="signup_email"
+              placeholder="Email"
+              [(ngModel)]="registerForm.email"
+              name="signup_email"
+              #signup_email="ngModel"
+              required
+              ngModel
+              email
+            />
+            <div
+              class="tw-p-2 tw-text-red-500"
+              *ngIf="
+                signup_email.invalid && (signup_email.dirty || signup_email.touched)
+              "
+            >
+              <div *ngIf="signup_email.errors?.['required']">Email is required</div>
+              <div
+                *ngIf="signup_email.errors?.['email'] && !signup_email.errors?.['required']"
+              >
+                Invalid email format
+              </div>
+            </div>
+            <input
+              type="password"
+              id="signup_pass"
+              placeholder="Password"
+              required
+              [(ngModel)]="registerForm.password"
+              name="signup_password"
+              #signup_password="ngModel"
+              required
+            />
+            <div
+              class="tw-p-2 tw-text-red-500"
+              *ngIf="
+                signup_password.invalid &&
+                (signup_password.dirty || signup_password.touched)
+              "
+            >
+              Password field must be valid
+            </div>
+            <input
+              type="password"
+              id="signup_cpass"
+              placeholder="Confirm Password"
+              required
+              [(ngModel)]="registerForm.cpassword"
+              name="signup_cpassword"
+              #signup_cpassword="ngModel"
+              required
+            />
+            <div
+              class="tw-p-2 tw-text-red-500"
+              *ngIf="
+                signup_cpassword.invalid &&
+                (signup_cpassword.dirty || signup_cpassword.touched)
+              "
+            >
+              Confirm Password field must be valid
+            </div>
+            <div
+              class="tw-p-2 tw-text-red-500"
+              *ngIf="signup_password.touched && signup_cpassword.touched"
+            >
+              <div *ngIf="registerForm.password !== registerForm.cpassword">
+                The password and confirmation password do not match.
+              </div>
+            </div>
+            <div
+              class="spinner-border mb-3"
+              role="status"
+              *ngIf="isLoading()"
+            ></div>
+            <button type="submit" [disabled]="signupForm.form.invalid">
+              Sign Up
+            </button>
+          </form>
+        </div>-->
+    <div class="form-container sign-in-container">
+      <form (ngSubmit)="signin_submit()" #signinForm="ngForm">
+        <h1>Sign in</h1>
+        <span>or use your account</span>
+        <input
+          type="email"
+          placeholder="Email"
+          required
+          [(ngModel)]="loginForm.email"
+          name="signin_email"
+          #signin_email="ngModel"
+          ngModel
+          email
+        />
+        <div
+          class="tw-p-2 tw-text-red-500"
+          *ngIf="
+            signin_email.invalid && (signin_email.dirty || signin_email.touched)
+          "
+        >
+          <div *ngIf="signin_email.errors?.['required']">Email is required</div>
+          <div
+            *ngIf="signin_email.errors?.['email'] && !signin_email.errors?.['required']"
+          >
+            Invalid email format
+          </div>
+        </div>
+        <input
+          type="password"
+          placeholder="Password"
+          required
+          [(ngModel)]="loginForm.password"
+          name="signin_password"
+          #signin_password="ngModel"
+        />
+        <div
+          class="tw-p-2 tw-text-red-500"
+          *ngIf="
+            signin_password.invalid &&
+            (signin_password.dirty || signin_password.touched)
+          "
+        >
+          Password field must be valid
+        </div>
+        <a href="#">Forgot your password?</a>
+        <div
+          class="spinner-border mb-3"
+          role="status"
+          *ngIf="isLoading()"
+        ></div>
+        <button [disabled]="signinForm.form.invalid">Sign In</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <!--<div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>To keep connected with us please login with your personal info</p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>-->
+        <div class="overlay-panel overlay-right">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <!--<button class="ghost" id="signUp">Sign Up</button>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
