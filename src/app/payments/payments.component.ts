@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PaymentsService } from '../shared/services/payments.service';
 import { AuthService } from '../shared/services/auth.service';
+import { Card } from '../type/card';
 
 @Component({
   selector: 'app-payments',
@@ -9,7 +10,8 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class PaymentsComponent {
   payments: any;
-
+  payment!: Card;
+  isSelected: boolean = true;
   constructor(
     private paymentService: PaymentsService,
     private authService: AuthService
@@ -24,13 +26,18 @@ export class PaymentsComponent {
       });
   }
 
-  handleEdit(payment: any) {
+  handleEdit(payment: Card) {
     // Handle edit event here
     console.log('Edit clicked for payment:', payment);
+    this.payment = payment;
+    this.isSelected = false;
   }
 
   handleDelete(payment: any) {
     // Handle delete event here
     console.log('Delete clicked for payment:', payment);
+  }
+  handleDetailEdit(event: Event) {
+    this.isSelected = true;
   }
 }

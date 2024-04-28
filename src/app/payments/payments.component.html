@@ -2,7 +2,11 @@
   <h1 class="title">Payments</h1>
   <div class="split-container">
     <div class="left-pane">
-      <app-card-details></app-card-details>
+      <app-card-details
+        [isSelected]="isSelected"
+        [payment]="payment"
+        (editClicked)="handleDetailEdit($event)"
+      ></app-card-details>
     </div>
     <div class="right-pane">
       <app-card-list
