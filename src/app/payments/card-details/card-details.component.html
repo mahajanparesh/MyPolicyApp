@@ -1,0 +1,48 @@
+<h4 class="sub_title">Add Card</h4>
+<div style="padding: 0px 20px 20px 20px">
+  <form class="card-form" action="#" method="post">
+    <div class="form-group">
+      <label for="card-owner">Card Owner Name:</label>
+      <input
+        type="text"
+        id="card-owner"
+        name="card-owner"
+        required
+        placeholder="Full Name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="card-number">Card Number:</label>
+      <input
+        type="text"
+        id="card-number"
+        name="card-number"
+        required
+        placeholder="16 Digit Card Number"
+      />
+    </div>
+    <div class="form-group flex-container">
+      <div>
+        <label for="security-code">Security Code:</label>
+        <input
+          type="text"
+          id="security-code"
+          name="security-code"
+          placeholder="Security Code"
+          required
+        />
+      </div>
+      <div>
+        <label for="valid-through">Valid Through:</label>
+        <input
+          type="text"
+          id="valid-through"
+          name="valid-through"
+          placeholder="MM/YY"
+          required
+        />
+      </div>
+    </div>
+    <button type="submit">Add Card</button>
+  </form>
+</div>

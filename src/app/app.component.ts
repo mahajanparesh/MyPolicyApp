@@ -11,9 +11,9 @@ export class AppComponent {
   title = 'MyPolicyApp';
   constructor(private authService: AuthService, private router: Router) {}
   ngOnInit() {
-    if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/home']);
-    }
+    // if (this.authService.isAuthenticated()) {
+    //   this.router.navigate(['/home']);
+    // }
   }
   isAuthenticated(): any {
     return this.authService.isAuthenticated();

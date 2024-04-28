@@ -23,7 +23,7 @@ export class AuthService {
         ) {
           alert('Error: Incorrect Password');
         } else {
-          localStorage.setItem('user', JSON.stringify(data));
+          localStorage.setItem('user', JSON.stringify(loginForm));
           alert('Login Successfully');
           this.router.navigate(['/home']);
         }
