@@ -40,4 +40,17 @@ export class PaymentsComponent {
   handleDetailEdit(event: Event) {
     this.isSelected = true;
   }
+  handlePaymentChange(updatedPayment: Card) {
+    this.payment = this.setBlank();
+  }
+  setBlank(): Card {
+    return {
+      cardNumber: '',
+      cardOwnerName: '',
+      id: 0,
+      securityCode: '',
+      userId: 0,
+      validThrough: '',
+    };
+  }
 }

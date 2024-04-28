@@ -36,7 +36,7 @@ export class AuthService {
           localStorage.setItem('user', JSON.stringify(userData));
 
           alert('Login Successfully');
-          this.router.navigate(['/home']);
+          this.router.navigate(['/']);
         }
         this.isLoading = false;
       },
@@ -55,7 +55,7 @@ export class AuthService {
   }
   logout() {
     localStorage.removeItem('user');
-    this.router.navigate(['/']);
+    this.router.navigate(['/auth']);
   }
 
   getUserDetails(): any {
