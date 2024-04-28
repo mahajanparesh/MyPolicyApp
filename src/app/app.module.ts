@@ -10,14 +10,21 @@ import {
   provideHttpClient,
   withFetch,
 } from '@angular/common/http';
-import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './home/home.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { CardDetailsComponent } from './payments/card-details/card-details.component';
 import { CardListComponent } from './payments/card-list/card-list.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent, AuthComponent, HomeComponent, PaymentsComponent, CardDetailsComponent, CardListComponent],
+  declarations: [
+    AppComponent,
+    AuthComponent,
+    HomeComponent,
+    PaymentsComponent,
+    CardDetailsComponent,
+    CardListComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

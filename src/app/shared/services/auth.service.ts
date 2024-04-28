@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {}
   login(loginForm: LoginForm) {
     this.isLoading = true;
-    const loginUrl = `${this.apiUrl}/api/Login/login`; // API endpoint for login
+    const loginUrl = `${this.apiUrl}/api/Login/login`;
     this.http.post<any>(loginUrl, loginForm).subscribe(
       (data) => {
         console.log(data);
@@ -23,7 +23,18 @@ export class AuthService {
         ) {
           alert('Error: Incorrect Password');
         } else {
-          localStorage.setItem('user', JSON.stringify(loginForm));
+          const userEmail = loginForm.email;
+          const userID = data.userID;
+
+          // Create an object containing email and userID
+          const userData = {
+            email: userEmail,
+            userID: userID,
+          };
+
+          // Store userData object in localStorage
+          localStorage.setItem('user', JSON.stringify(userData));
+
           alert('Login Successfully');
           this.router.navigate(['/home']);
         }
@@ -45,5 +56,11 @@ export class AuthService {
   logout() {
     localStorage.removeItem('user');
     this.router.navigate(['/']);
+  }
+
+  getUserDetails(): any {
+    if (this.isAuthenticated()) {
+      return localStorage.getItem('user');
+    }
   }
 }

@@ -10,10 +10,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>John Doe</td>
-      <td>1234 5678 9012 3456</td>
-      <td>10/25</td>
+    <tr *ngFor="let payment of payments">
+      <td>{{ payment.cardOwnerName }}</td>
+      <td>{{ payment.cardNumber }}</td>
+      <td>{{ payment.validThrough | monthYear }}</td>
       <td>
         <img src="assets/edit.png" alt="Edit" width="20" height="20" />
       </td>
