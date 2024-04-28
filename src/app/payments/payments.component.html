@@ -5,7 +5,11 @@
       <app-card-details></app-card-details>
     </div>
     <div class="right-pane">
-      <app-card-list [payments]="payments"></app-card-list>
+      <app-card-list
+        [payments]="payments"
+        (editClicked)="handleEdit($event)"
+        (deleteClicked)="handleDelete($event)"
+      ></app-card-list>
     </div>
   </div>
 </div>

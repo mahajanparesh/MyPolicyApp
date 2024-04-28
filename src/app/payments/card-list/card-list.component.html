@@ -15,10 +15,22 @@
       <td>{{ payment.cardNumber }}</td>
       <td>{{ payment.validThrough | monthYear }}</td>
       <td>
-        <img src="assets/edit.png" alt="Edit" width="20" height="20" />
+        <img
+          src="assets/edit.png"
+          alt="Edit"
+          width="20"
+          height="20"
+          (click)="emitEditClicked(payment)"
+        />
       </td>
       <td>
-        <img src="assets/bin.png" alt="Delete" width="20" height="20" />
+        <img
+          src="assets/bin.png"
+          alt="Delete"
+          width="20"
+          height="20"
+          (click)="emitDeleteClicked(payment)"
+        />
       </td>
     </tr>
   </tbody>

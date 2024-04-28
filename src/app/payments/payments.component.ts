@@ -14,6 +14,7 @@ export class PaymentsComponent {
     private paymentService: PaymentsService,
     private authService: AuthService
   ) {}
+
   ngOnInit(): void {
     this.paymentService
       .getPaymentsByUserId(JSON.parse(this.authService.getUserDetails()).userID)
@@ -21,5 +22,15 @@ export class PaymentsComponent {
         this.payments = data;
         console.log(data);
       });
+  }
+
+  handleEdit(payment: any) {
+    // Handle edit event here
+    console.log('Edit clicked for payment:', payment);
+  }
+
+  handleDelete(payment: any) {
+    // Handle delete event here
+    console.log('Delete clicked for payment:', payment);
   }
 }
