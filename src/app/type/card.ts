@@ -4,5 +4,12 @@ export interface Card {
   id: number;
   securityCode: string;
   userId: number;
-  validThrough: string; // You can use Date type if you prefer
+  validThrough: string;
+}
+export interface CardDetails {
+  cardOwnerName: string;
+  cardNumber: string;
+  securityCode: string;
+  validThrough: string;
+  userId: number;
 }

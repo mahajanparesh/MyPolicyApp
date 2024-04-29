@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="title">Payments</h1>
-  <div class="split-container">
+  <!--<div class="split-container">
     <div class="left-pane">
       <app-card-details
         [isSelected]="isSelected"
@@ -16,5 +16,6 @@
         (deleteClicked)="handleDelete($event)"
       ></app-card-list>
     </div>
-  </div>
+  </div>-->
+  <app-card-info [payments]="payments"></app-card-info>
 </div>

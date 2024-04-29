@@ -1,0 +1,298 @@
+<div class="split-container">
+  <div class="left-pane">
+    <div *ngIf="isSelected">
+      <h4 class="sub_title">Add Card</h4>
+      <div style="padding: 0px 20px 20px 20px">
+        <form
+          class="card-form"
+          action="#"
+          method="post"
+          (ngSubmit)="addSubmit()"
+          #addCardForm="ngForm"
+        >
+          <div class="form-group">
+            <label for="card-owner">Card Owner Name:</label>
+            <input
+              type="text"
+              id="card-owner"
+              name="card-owner"
+              required
+              placeholder="Full Name"
+              [(ngModel)]="addPayment.cardOwnerName"
+              #cardOwner="ngModel"
+            />
+            <div
+              *ngIf="
+                cardOwner.invalid && (cardOwner.dirty || cardOwner.touched)
+              "
+            >
+              <div
+                *ngIf="cardOwner.errors?.['required']"
+                class="error-message tw-p-2 tw-text-red-500"
+              >
+                Card owner name is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="card-number">Card Number:</label>
+            <input
+              type="text"
+              id="card-number"
+              name="card-number"
+              required
+              placeholder="16 Digit Card Number"
+              [(ngModel)]="addPayment.cardNumber"
+              #cardNumber="ngModel"
+              pattern="[0-9]{16}"
+            />
+            <div
+              *ngIf="
+                cardNumber.invalid && (cardNumber.dirty || cardNumber.touched)
+              "
+              class="tw-p-2 tw-text-red-500"
+            >
+              <div
+                *ngIf="cardNumber.errors?.['required']"
+                class="error-message"
+              >
+                Card number is required
+              </div>
+              <div *ngIf="cardNumber.errors?.['pattern']" class="error-message">
+                Card number must be 16 digits
+              </div>
+            </div>
+          </div>
+          <div class="form-group flex-container">
+            <div>
+              <label for="security-code">Security Code:</label>
+              <input
+                type="text"
+                id="security-code"
+                name="security-code"
+                placeholder="Security Code"
+                required
+                [(ngModel)]="addPayment.securityCode"
+                #securityCode="ngModel"
+                pattern="[0-9]{3,4}"
+              />
+              <div
+                *ngIf="
+                  securityCode.invalid &&
+                  (securityCode.dirty || securityCode.touched)
+                "
+                class="tw-p-2 tw-text-red-500"
+              >
+                <div
+                  *ngIf="securityCode.errors?.['required']"
+                  class="error-message"
+                >
+                  Security code is required
+                </div>
+                <div
+                  *ngIf="securityCode.errors?.['pattern']"
+                  class="error-message"
+                >
+                  Security code must be 3 or 4 digits
+                </div>
+              </div>
+            </div>
+            <div>
+              <label for="valid-through">Valid Through:</label>
+              <input
+                type="text"
+                id="valid-through"
+                name="valid-through"
+                placeholder="MM/YY"
+                required
+                [(ngModel)]="addPayment.validThrough"
+                #validThrough="ngModel"
+                pattern="(0[1-9]|1[0-2])\/[0-9]{2}"
+              />
+              <div
+                *ngIf="
+                  validThrough.invalid &&
+                  (validThrough.dirty || validThrough.touched)
+                "
+                class="tw-p-2 tw-text-red-500"
+              >
+                <div
+                  *ngIf="validThrough.errors?.['required']"
+                  class="error-message"
+                >
+                  Valid through date is required
+                </div>
+                <div
+                  *ngIf="validThrough.errors?.['pattern']"
+                  class="error-message"
+                >
+                  Valid through date must be in MM/YY format
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" [disabled]="addCardForm.invalid">
+            Add Card
+          </button>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="!isSelected">
+      <h4 class="sub_title">Edit Card</h4>
+      <div style="padding: 0px 20px 20px 20px">
+        <form
+          class="card-form"
+          (ngSubmit)="editSubmit()"
+          #editCardForm="ngForm"
+        >
+          <div class="form-group">
+            <label for="card-owner">Card Owner Name:</label>
+            <input
+              type="text"
+              id="card-owner"
+              name="card-owner"
+              required
+              placeholder="Full Name"
+              [(ngModel)]="editPayment.cardOwnerName"
+              #cardOwner="ngModel"
+            />
+            <div
+              class="error-message tw-p-2 tw-text-red-500"
+              *ngIf="
+                cardOwner.invalid && (cardOwner.dirty || cardOwner.touched)
+              "
+            >
+              <div *ngIf="cardOwner.errors?.['required']">
+                Card owner name is required
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="card-number">Card Number:</label>
+            <input
+              type="text"
+              id="card-number"
+              name="card-number"
+              required
+              placeholder="16 Digit Card Number"
+              [(ngModel)]="editPayment.cardNumber"
+              #cardNumber="ngModel"
+              pattern="[0-9]{16}"
+            />
+            <div
+              class="error-message tw-p-2 tw-text-red-500"
+              *ngIf="
+                cardNumber.invalid && (cardNumber.dirty || cardNumber.touched)
+              "
+            >
+              <div *ngIf="cardNumber.errors?.['required']">
+                Card number is required
+              </div>
+              <div *ngIf="cardNumber.errors?.['pattern']">
+                Card number must be 16 digits
+              </div>
+            </div>
+          </div>
+          <div class="form-group flex-container">
+            <div>
+              <label for="security-code">Security Code:</label>
+              <input
+                type="text"
+                id="security-code"
+                name="security-code"
+                placeholder="Security Code"
+                required
+                [(ngModel)]="editPayment.securityCode"
+                #securityCode="ngModel"
+                pattern="[0-9]{3,4}"
+              />
+              <div
+                class="error-message tw-p-2 tw-text-red-500"
+                *ngIf="
+                  securityCode.invalid &&
+                  (securityCode.dirty || securityCode.touched)
+                "
+              >
+                <div *ngIf="securityCode.errors?.['required']">
+                  Security code is required
+                </div>
+                <div *ngIf="securityCode.errors?.['pattern']">
+                  Security code must be 3 or 4 digits
+                </div>
+              </div>
+            </div>
+            <div>
+              <label for="valid-through">Valid Through:</label>
+              <input
+                type="text"
+                id="valid-through"
+                name="valid-through"
+                placeholder="MM/YY"
+                required
+                [(ngModel)]="editPayment.validThrough"
+                #validThrough="ngModel"
+                pattern="(0[1-9]|1[0-2])\/[0-9]{2}"
+              />
+              <div
+                class="error-message tw-p-2 tw-text-red-500"
+                *ngIf="
+                  validThrough.invalid &&
+                  (validThrough.dirty || validThrough.touched)
+                "
+              >
+                <div *ngIf="validThrough.errors?.['required']">
+                  Valid through date is required
+                </div>
+                <div *ngIf="validThrough.errors?.['pattern']">
+                  Valid through date must be in MM/YY format
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" [disabled]="editCardForm.invalid">
+            Edit Card
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="right-pane">
+    <h4 class="sub_title">Card List</h4>
+    <table class="card-table">
+      <thead>
+        <tr>
+          <th>Card Owner</th>
+          <th>Card Number</th>
+          <th>Exp. Date</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payment of payments">
+          <td>{{ payment.cardOwnerName }}</td>
+          <td>{{ payment.cardNumber }}</td>
+          <td>{{ payment.validThrough | monthYear }}</td>
+          <td>
+            <img
+              src="assets/edit.png"
+              alt="Edit"
+              width="20"
+              height="20"
+              (click)="onEditClick(payment)"
+            />
+          </td>
+          <td>
+            <img
+              src="assets/bin.png"
+              alt="Delete"
+              width="20"
+              height="20"
+              (click)="deleteCard(payment)"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

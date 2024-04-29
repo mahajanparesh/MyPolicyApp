@@ -6,20 +6,28 @@ import { Card } from '../type/card';
 @Component({
   selector: 'app-payments',
   templateUrl: './payments.component.html',
-  styleUrl: './payments.component.css',
+  styleUrls: ['./payments.component.css'], // Corrected styleUrl to styleUrls
 })
 export class PaymentsComponent {
   payments: any;
   payment!: Card;
   isSelected: boolean = true;
+
   constructor(
     private paymentService: PaymentsService,
     private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.loadPayments();
+    this.paymentService.cardAdded().subscribe(() => {
+      this.loadPayments(); // Reload payments when a new payment is added
+    });
+  }
+
+  loadPayments() {
     this.paymentService
-      .getPaymentsByUserId(JSON.parse(this.authService.getUserDetails()).userID)
+      .getCardsByUserId(JSON.parse(this.authService.getUserDetails()).userID)
       .subscribe((data) => {
         this.payments = data;
         console.log(data);
@@ -37,12 +45,15 @@ export class PaymentsComponent {
     // Handle delete event here
     console.log('Delete clicked for payment:', payment);
   }
+
   handleDetailEdit(event: Event) {
     this.isSelected = true;
   }
+
   handlePaymentChange(updatedPayment: Card) {
     this.payment = this.setBlank();
   }
+
   setBlank(): Card {
     return {
       cardNumber: '',

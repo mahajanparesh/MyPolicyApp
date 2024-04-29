@@ -12,9 +12,11 @@ import {
 } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { PaymentsComponent } from './payments/payments.component';
-import { CardDetailsComponent } from './payments/card-details/card-details.component';
-import { CardListComponent } from './payments/card-list/card-list.component';
 import { SharedModule } from './shared/shared.module';
+import { CardInfoComponent } from './payments/card-info/card-info.component';
+import { ToastrModule } from 'ngx-toastr';
+import { ɵBrowserAnimationBuilder } from '@angular/animations';
+import { BrowserPlatformLocation } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,8 +24,7 @@ import { SharedModule } from './shared/shared.module';
     AuthComponent,
     HomeComponent,
     PaymentsComponent,
-    CardDetailsComponent,
-    CardListComponent,
+    CardInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +33,7 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule,
+    ToastrModule.forRoot(),
   ],
   providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent],

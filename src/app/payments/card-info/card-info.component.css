@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+.sub_title {
+  font-weight: bolder;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
+.card-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.card-table th,
+.card-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-table th {
+  background-color: #f2f2f2;
+}
+
+.card-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.container {
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent;
+  width: 90vw;
+  margin-top: 17px;
+  margin-bottom: 17px;
+}
+
+.title {
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  border-bottom: 1px solid rgb(170, 170, 170);
+}
+
+.split-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  height: 100%;
+}
+
+.left-pane {
+  width: 45%;
+}
+
+.right-pane {
+  width: 55%;
+  height: 70vh;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1000px) {
+  .left-pane,
+  .right-pane {
+    width: 100%; /* Make both panes take up full width */
+  }
+}
+.form-group {
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+}
+
+button {
+  border-radius: 20px;
+  border: 1px solid #000000;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  width: 100%;
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-container > div {
+  width: 48%; /* Adjust width as needed */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 600px) {
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .flex-container > div {
+    width: 100%;
+  }
+}
+.sub_title {
+  font-weight: bolder;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
