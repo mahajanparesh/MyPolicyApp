@@ -17,7 +17,7 @@ export class CardInfoComponent {
   constructor(
     private authService: AuthService,
     private paymentService: PaymentsService,
-    private toastr: ToastrService // Inject the toastr service
+    private toastr: ToastrService
   ) {}
 
   editPayment!: Card;
@@ -31,10 +31,10 @@ export class CardInfoComponent {
     this.paymentService.addCard(this.addPayment).subscribe(
       (result) => {
         this.addCardForm.resetForm();
-        this.toastr.success('Card added successfully'); // Use toastr for success
+        this.toastr.success('Card added successfully');
       },
       (error) => {
-        this.toastr.error('Error adding payment:'); // Use toastr for error
+        this.toastr.error('Error adding payment:');
       }
     );
   }
@@ -47,12 +47,12 @@ export class CardInfoComponent {
 
     this.paymentService.updateCard(id, editedPayment).subscribe(
       () => {
-        this.toastr.success('Card updated successfully'); // Use toastr for success
+        this.toastr.success('Card updated successfully');
         this.editCardForm.resetForm();
         this.isSelected = true;
       },
       (error) => {
-        this.toastr.error('Error updating payment:'); // Use toastr for error
+        this.toastr.error('Error updating payment:');
       }
     );
   }
@@ -60,7 +60,7 @@ export class CardInfoComponent {
     if (confirm('Are you sure you want to delete this card?')) {
       this.paymentService.deleteCard(payment.id).subscribe(
         () => {
-          this.toastr.success('Card deleted successfully'); // Use toastr for success
+          this.toastr.success('Card deleted successfully');
         },
         (error) => {
           this.toastr.error('Error deleting card:'); // Use toastr for error

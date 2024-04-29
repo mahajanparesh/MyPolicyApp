@@ -59,7 +59,7 @@
   border-radius: 0px;
 }
 .card img {
-  max-width: 20%;
+  max-width: 18%;
   margin: auto;
   padding: 0.5em;
   border-radius: 0.7em;
@@ -87,17 +87,16 @@
 }
 .card-text {
   letter-spacing: 0.1em;
+  line-height: 0px;
 }
-.card-text {
-  /* Your common styles for the paragraph */
+.card-title {
+  margin-bottom: 5px;
 }
 
 .insurer {
-  /* CSS styles specific to the "Insurer" part */
 }
 
 .name {
-  /* CSS styles specific to the "Paresh Mahajan" part */
   margin-left: 10px;
   font-weight: 500;
 }
