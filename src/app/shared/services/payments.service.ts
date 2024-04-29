@@ -14,7 +14,7 @@ export class PaymentsService {
 
   getCardsByUserId(userId: number): Observable<any> {
     const paymentByIDUrl = `${this.apiUrl}/api/Payment/byuserid/`;
-    return this.http.post<any>(paymentByIDUrl + userId, {});
+    return this.http.get<any>(`${paymentByIDUrl}${userId}`);
   }
 
   addCard(paymentInput: any): Observable<boolean> {

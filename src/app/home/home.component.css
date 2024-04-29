@@ -57,6 +57,7 @@
   background-color: hsl(0, 0%, 100%);
   color: #000000;
   border-radius: 0px;
+  margin: 10px 0px 10px 0px;
 }
 .card img {
   max-width: 18%;

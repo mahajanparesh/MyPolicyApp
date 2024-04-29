@@ -19,6 +19,6 @@ export class AuthComponent {
   }
 
   isLoading() {
-    this.authService.isLoading;
+    return this.authService.isLoading;
   }
 }
