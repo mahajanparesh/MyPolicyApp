@@ -14,6 +14,7 @@ export class AppComponent {
     if (!this.authService.isAuthenticated()) {
       this.router.navigate(['/auth']);
     }
+    localStorage.setItem('user', 'true');
   }
   isAuthenticated(): any {
     return this.authService.isAuthenticated();

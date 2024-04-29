@@ -1,21 +1,4 @@
 <div class="container">
   <h1 class="title">Payments</h1>
-  <!--<div class="split-container">
-    <div class="left-pane">
-      <app-card-details
-        [isSelected]="isSelected"
-        [payment]="payment"
-        (editClicked)="handleDetailEdit($event)"
-        (paymentChange)="handlePaymentChange($event)"
-      ></app-card-details>
-    </div>
-    <div class="right-pane">
-      <app-card-list
-        [payments]="payments"
-        (editClicked)="handleEdit($event)"
-        (deleteClicked)="handleDelete($event)"
-      ></app-card-list>
-    </div>
-  </div>-->
   <app-card-info [payments]="payments"></app-card-info>
 </div>

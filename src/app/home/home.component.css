@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+.user-details {
+  border: 1px solid #ccc;
+  padding: 20px 200px 20px 200px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-details h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.details-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail {
+  width: 48%; /* Adjust as needed */
+}
+
+.detail p {
+  margin: 5px 0;
+}
+
+.container {
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent;
+  width: 100%;
+  margin-top: 17px;
+  margin-bottom: 17px;
+}
+
+.title {
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  border-bottom: 1px solid rgb(170, 170, 170);
+}
+
+.insurance-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.card {
+  flex-direction: row;
+  max-width: 70%;
+  border: 1;
+  background-color: hsl(0, 0%, 100%);
+  color: #000000;
+  border-radius: 0px;
+}
+.card img {
+  max-width: 20%;
+  margin: auto;
+  padding: 0.5em;
+  border-radius: 0.7em;
+}
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.text-section {
+  max-width: 60%;
+}
+.cta-section {
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.cta-section .btn {
+  font-size: 1em;
+  color: #ffffff;
+  background-color: #000000;
+  border-radius: 0px;
+}
+.card-text {
+  letter-spacing: 0.1em;
+}
+.card-text {
+  /* Your common styles for the paragraph */
+}
+
+.insurer {
+  /* CSS styles specific to the "Insurer" part */
+}
+
+.name {
+  /* CSS styles specific to the "Paresh Mahajan" part */
+  margin-left: 10px;
+  font-weight: 500;
+}
