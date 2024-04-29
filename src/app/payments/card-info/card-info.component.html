@@ -134,6 +134,9 @@
           <button type="submit" [disabled]="addCardForm.invalid">
             Add Card
           </button>
+          <button class="clear-button" type="submit" (click)="clearAddForm()">
+            Clear Button
+          </button>
         </form>
       </div>
     </div>
@@ -251,6 +254,9 @@
           </div>
           <button type="submit" [disabled]="editCardForm.invalid">
             Edit Card
+          </button>
+          <button class="clear-button" type="submit" (click)="clearEditForm()">
+            Clear Button
           </button>
         </form>
       </div>

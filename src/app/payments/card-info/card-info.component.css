@@ -96,7 +96,20 @@ button {
   width: 100%;
   margin-top: 20px; /* Adjust margin as needed */
 }
-
+.clear-button {
+  border-radius: 20px;
+  border: 3px solid #000000;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  width: 100%;
+  margin-top: 10px; /* Adjust margin as needed */
+}
 button:active {
   transform: scale(0.95);
 }

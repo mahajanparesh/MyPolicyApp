@@ -93,4 +93,12 @@ export class CardInfoComponent {
       userId: JSON.parse(this.authService.getUserDetails()).userID,
     };
   }
+  clearAddForm() {
+    this.addCardForm.resetForm();
+    this.isSelected = true;
+  }
+  clearEditForm() {
+    this.editCardForm.resetForm();
+    this.isSelected = true;
+  }
 }

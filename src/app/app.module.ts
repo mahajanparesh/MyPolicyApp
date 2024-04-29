@@ -15,9 +15,7 @@ import { PaymentsComponent } from './payments/payments.component';
 import { SharedModule } from './shared/shared.module';
 import { CardInfoComponent } from './payments/card-info/card-info.component';
 import { ToastrModule } from 'ngx-toastr';
-import { ɵBrowserAnimationBuilder } from '@angular/animations';
-import { BrowserPlatformLocation } from '@angular/common';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +32,7 @@ import { BrowserPlatformLocation } from '@angular/common';
     HttpClientModule,
     SharedModule,
     ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
