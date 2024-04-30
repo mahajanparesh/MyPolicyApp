@@ -12,25 +12,24 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class CardInfoComponent {
   @Input() payments!: any[];
-  @ViewChild('addCardForm') addCardForm!: NgForm;
-  @ViewChild('editCardForm') editCardForm!: NgForm;
+  @ViewChild('cardForm') form!: NgForm;
   constructor(
     private authService: AuthService,
     private paymentService: PaymentsService,
     private toastr: ToastrService
   ) {}
 
-  editPayment!: Card;
-  addPayment = this.setAddPaymentBlank();
+  payment = this.setAddPaymentBlank();
   isSelected = true;
 
   addSubmit() {
-    const [month, year] = this.addPayment.validThrough.split('/');
+    console.log(this.payment);
+    const [month, year] = this.payment.validThrough.split('/');
     const formattedValidThrough = `20${year}-${month}-01`;
-    this.addPayment.validThrough = formattedValidThrough;
-    this.paymentService.addCard(this.addPayment).subscribe(
+    this.payment.validThrough = formattedValidThrough;
+    this.paymentService.addCard(this.payment).subscribe(
       (result) => {
-        this.addCardForm.resetForm();
+        this.clearForm();
         this.toastr.success('Card added successfully');
       },
       (error) => {
@@ -39,16 +38,15 @@ export class CardInfoComponent {
     );
   }
   editSubmit() {
-    const { id, ...editedPayment } = this.editPayment;
-    console.log(this.editPayment);
-    const [month, year] = editedPayment.validThrough.split('/');
+    const id = this.payment.id;
+    const [month, year] = this.payment.validThrough.split('/');
     const formattedValidThrough = `20${year}-${month}-01`;
-    editedPayment.validThrough = formattedValidThrough;
-
-    this.paymentService.updateCard(id, editedPayment).subscribe(
+    this.payment.validThrough = formattedValidThrough;
+    console.log(this.payment);
+    this.paymentService.updateCard(id, this.payment).subscribe(
       () => {
         this.toastr.success('Card updated successfully');
-        this.editCardForm.resetForm();
+        this.clearForm();
         this.isSelected = true;
       },
       (error) => {
@@ -69,10 +67,8 @@ export class CardInfoComponent {
     }
   }
   onEditClick(payment: Card) {
-    this.editPayment = { ...payment };
-    this.editPayment.validThrough = this.formatValidThrough(
-      payment.validThrough
-    );
+    this.payment = { ...payment };
+    this.payment.validThrough = this.formatValidThrough(payment.validThrough);
     this.isSelected = false;
   }
   private formatValidThrough(validThrough: string): string {
@@ -84,21 +80,18 @@ export class CardInfoComponent {
       .padStart(2, '0')}`;
   }
 
-  setAddPaymentBlank(): CardDetails {
+  setAddPaymentBlank(): Card {
     return {
-      cardOwnerName: '',
       cardNumber: '',
+      cardOwnerName: '',
+      id: 0,
       securityCode: '',
-      validThrough: '',
       userId: JSON.parse(this.authService.getUserDetails()).userID,
+      validThrough: '',
     };
   }
-  clearAddForm() {
-    this.addCardForm.resetForm();
-    this.isSelected = true;
-  }
-  clearEditForm() {
-    this.editCardForm.resetForm();
+  clearForm() {
+    this.form.resetForm();
     this.isSelected = true;
   }
 }
