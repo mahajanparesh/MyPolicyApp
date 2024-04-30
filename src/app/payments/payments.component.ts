@@ -28,10 +28,16 @@ export class PaymentsComponent {
   loadPayments() {
     this.paymentService
       .getCardsByUserId(JSON.parse(this.authService.getUserDetails()).userID)
-      .subscribe((data) => {
-        this.payments = data;
-        console.log(data);
-      });
+      .subscribe(
+        (data) => {
+          this.payments = data;
+          console.log(data);
+        },
+        (error) => {
+          console.log('Data not Found');
+          this.payments = [];
+        }
+      );
   }
 
   handleEdit(payment: Card) {

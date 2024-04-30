@@ -29,8 +29,8 @@ export class PaymentsService {
   cardAdded(): Observable<boolean> {
     return this.paymentAddedSubject.asObservable();
   }
-  updateCard(paymentId: number, paymentInput: any): Observable<boolean> {
-    const updatePaymentUrl = `${this.apiUrl}/api/Payment/${paymentId}`;
+  updateCard(paymentInput: any): Observable<boolean> {
+    const updatePaymentUrl = `${this.apiUrl}/api/Payment/Payment`;
     return this.http.put<boolean>(updatePaymentUrl, paymentInput).pipe(
       tap(() => {
         this.paymentAddedSubject.next(true);

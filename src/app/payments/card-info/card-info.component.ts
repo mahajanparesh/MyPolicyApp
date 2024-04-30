@@ -38,12 +38,11 @@ export class CardInfoComponent {
     );
   }
   editSubmit() {
-    const id = this.payment.id;
     const [month, year] = this.payment.validThrough.split('/');
     const formattedValidThrough = `20${year}-${month}-01`;
     this.payment.validThrough = formattedValidThrough;
     console.log(this.payment);
-    this.paymentService.updateCard(id, this.payment).subscribe(
+    this.paymentService.updateCard(this.payment).subscribe(
       () => {
         this.toastr.success('Card updated successfully');
         this.clearForm();
